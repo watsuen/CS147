@@ -31,13 +31,29 @@
 	<div data-role="content">	
 		<p></p>
 		<ul data-role="listview" data-inset="true" data-filter="true">
-			<li><a href="#">Barack Obama</a></li>
+		
+		<?php 
+		
+		include("config.php");
+		$query = "SELECT * FROM presidents";
+		$result = mysql_query($query);
+		while ($row = mysql_fetch_assoc($result)) {
+
+		    echo "<li><a href=\"#\">".$row["name"]."</a></li>";
+
+		}
+
+/*
+<li><a href="#">Barack Obama</a></li>
 			<li><a href="#">Mitt Romney</a></li>
 			<li><a href="#">Peta Lindsay</a></li>
 			<li><a href="#">Rocky Anderson</a></li>
 			<li><a href="#">Virgil Goode</a></li>
 			<li><a href="#">Jill Stein</a></li>
-			<li><a href="#">Gary Johnson</a></li>
+			<li><a href="#">Gary Johnson</a></li>*/
+		
+		?>
+			
 		</ul>
 		
 		<ul data-role="listview" data-inset="true">
@@ -99,16 +115,7 @@
 	</form>
 	</div><!-- /content -->
 
-	<div data-role="footer" data-id="samebar" class="nav-glyphish-example" data-position="fixed" data-tap-toggle="false">
-		<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
-		<ul>
-			<li><a href="index.php" id="home" data-icon="custom">Home</a></li>
-			<li><a href="login.php" id="key" data-icon="custom">Login</a></li>
-			<li><a href="filter.php" id="beer" data-icon="custom" class="ui-btn-active">Filter</a></li>
-			<li><a href="#" id="skull" data-icon="custom">Settings</a></li>
-		</ul>
-		</div>
-	</div>
+	<?php include("footer.php"); ?>
 	
 	<script type="text/javascript">
 		$('#filter').live( 'pageinit',function(event){
