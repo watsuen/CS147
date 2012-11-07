@@ -6,6 +6,10 @@ echo "Hello World";
 
 ?>
 
+<?php
+include("menu.php");
+?>
+
 <h2>Variations on a Theme</h2>
 
 <?php
