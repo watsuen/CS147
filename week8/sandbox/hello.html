@@ -67,8 +67,14 @@
 			$( "#popupPanel" ).on({
 		    popupbeforeposition: function() {
 		        var h = $( window ).height();
-		
+		        var w = $( window ).width();
+		        $( "#popupPanel" ).css( "width", w );
 		        $( "#popupPanel" ).css( "height", h );
+		        $("#popupPanel").popup({history: false});
+		        $("#popupPanel").popup( "open" );
+		        $(".close").click(function() {
+		        $("#popupPanel2").popup('close');
+		      });
 		    }
 			});
 		});
@@ -82,10 +88,13 @@
 	</div>
 	<div data-role="popup" id="popupPanel" data-corners="false" data-theme="none" data-shadow="false" data-tolerance="0,0">
 	
-	    <button data-theme="a" data-icon="back" data-mini="true">Back</button>
-	    <button data-theme="a" data-icon="grid" data-mini="true">Menu</button>
-	    <button data-theme="a" data-icon="search" data-mini="true">Search</button>
-		 
+	<img src="arrow.png" style="-webkit-transform:rotate(Xdeg);-webkit-transform: scaleX(-1);position:absolute;top:0px;right:0;" />
+
+    <div id="helper">
+    <p>Click here to see more options</p>
+    <a href="$" data-rel="back" data-role="button" class="close">Close</a>
+    </div>
+    		 
 	</div>
 	<div data-role="footer" data-id="samebar" class="nav-glyphish-example" data-position="fixed" data-tap-toggle="false">
 		<div data-role="navbar" class="nav-glyphish-example" data-grid="b">
